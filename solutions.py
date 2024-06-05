@@ -1,3 +1,4 @@
+# pylint: disable=unused-variable
 """
 A few decision-making puzzles to solve using if/elif/else logic.
 Do not call any of these functions from within this file... only do that by running the main.py file.
@@ -27,8 +28,14 @@ def is_square():
       :returns: True if square (i.e. if equal length and height), False otherwise.
     """
     #### write your solution for this function below here. ####
-
-
+    width = float(input("Enter the width: "))
+    height = float(input("Enter the height: "))
+    if width == height:
+        return True
+    else:
+        return False    
+    
+    
 def get_greatest():
     """
     Asks the user for two integers, and returns the number that is greatest, as an int.
@@ -38,7 +45,12 @@ def get_greatest():
     :returns: the greatest of the two input numbers, as an int.
     """
     #### write your solution for this function below here. ####
-
+    number_1 = int(input("Enter the first number: "))
+    number_2 = int(input("Enter the second number: "))
+    if number_1 > number_2:
+        return number_1
+    else:
+        return number_2
 
 def get_bmi_category():
     """
@@ -60,6 +72,28 @@ def get_bmi_category():
       :returns: The name of the BMI statistical category, based on the inputted height and weight.
     """
     #### write your solution for this function below here. ####
+    height = float(input("Enter height(in inches): "))
+    weight = float(input("Enter weight(in pounds): "))
+    BMI = 703 * weight / (height ** 2)
+    if BMI < 15:
+        return "Very severely underweight"
+    elif BMI < 16:
+        return "Severely underweight"
+    elif BMI < 18.5:
+        return "Underweight"
+    elif BMI < 25:
+        return "Normal"
+    elif BMI < 30:
+        return "Overweight"
+    elif BMI < 35:
+        return "Moderately obese"
+    elif BMI < 40:
+        return "Severely obese"
+    else:
+        return "Very severely obese"
+    
+        
+    
 
 
 def get_discount():
@@ -72,6 +106,15 @@ def get_discount():
       :returns: The cost of the masks, after any discounts, e.g. "$4,000" for 1000 masks.
     """
     #### write your solution for this function below here. ####
+    number = int(input("Enter the number of the mask: "))
+    if number >= 5000:
+        total_cost = number*5*0.8
+    else:
+        total_cost = number*5
+    total_cost = round(total_cost)
+    return "${:,}".format(total_cost)
+    
+    
 
 
 def is_leap_year():
@@ -85,3 +128,7 @@ def is_leap_year():
         get_year()
     )  # this line is given to you - the variable, year, holds the current year
     #### write your solution for this function below here. ####
+    if(year%4==0 and year%100!=0) or (year%400==0):
+        return True
+    else:
+        return False
